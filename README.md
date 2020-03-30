@@ -1,4 +1,4 @@
-# PostsExample
+# Posts Example
 
 kotlin example for fetching and displaying posts from jsonplaceholder (fake json) APIs 
 website ==> [https://jsonplaceholder.typicode.com/posts]
