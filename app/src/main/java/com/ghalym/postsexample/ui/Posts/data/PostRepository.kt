@@ -7,25 +7,23 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PostRepo(iPostPresenter: IPostPresenter) {
-    var iPostPresenter: IPostPresenter;
+class PostRepository() {
     val endPointApi: EndPointApi;
 
     init {
-        this.iPostPresenter = iPostPresenter;
         endPointApi = RetrofitConnection().endPointApi;
     }
 
 
-    fun getAllPosts() {
+    fun getAllPosts(iPostPresenter: IPostPresenter) {
 
         endPointApi.getPosts().enqueue(object : Callback<List<Post>> {
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {
-                iPostPresenter.onFail(t.message.toString())
+                iPostPresenter?.onFail(t.message.toString())
             }
 
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
-                iPostPresenter.onSuccess(response.body())
+                iPostPresenter?.onSuccess(response.body())
             }
 
         })

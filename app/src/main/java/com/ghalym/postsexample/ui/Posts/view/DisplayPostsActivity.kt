@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ghalym.postsexample.R
 import com.ghalym.postsexample.ui.Posts.data.Post
+import com.ghalym.postsexample.ui.Posts.data.PostRepository
 import com.ghalym.postsexample.ui.Posts.presenter.Presenter
 import kotlinx.android.synthetic.main.display_posts_activity.*
 
@@ -23,7 +24,7 @@ class DisplayPostsActivity : AppCompatActivity(),
         adapter = PostRecyclerAdapter(data);
         adapter!!.onClickListener = this;
         rvPosts.adapter = adapter;
-        var presenter = Presenter(this);
+        var presenter = Presenter(this, PostRepository());
         presenter.getPostsFromRepo();
 
     }

@@ -1,4 +1,4 @@
-package com.ghalym.movieexample
+package com.ghalym.postsexample
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
